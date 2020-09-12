@@ -22,7 +22,7 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
-  console.log('Congratulations, you are all done!')
+  console.log('Congratulations, you are all done!'.cyan)
 }
 
 const createReactApp = () => {
@@ -52,7 +52,7 @@ const cdIntoNewApp = () => {
 const installPackages = () => {
   return new Promise((resolve) => {
     console.log('\nInstalling colors --> make your console.log beautiful!'.cyan)
-    shell.exec(`npm i --save color`, () => {
+    shell.exec(`npm install color`, () => {
       console.log('\nAll your packages have been installed!'.green)
       resolve()
     })

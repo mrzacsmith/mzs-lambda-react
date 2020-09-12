@@ -1,12 +1,18 @@
 # Contributing Guidelines
 
+:boom: :star: Welcome Hacktoberfest! This is a great entry level project for open source participation! :star: :boom:
+
 Thank you for taking the interest and time to contribute to this open source project.
 
-- Return to the [README](https://github.com/mrzacsmith/mzs-lambda-react/blob/master/README.md)
+Return to the [README](https://github.com/mrzacsmith/mzs-lambda-react/blob/master/README.md)
 
 ## Getting Started
 
+In order to get started, first you will need to clone this repo to your local machine. Next, create a feature branch, i.e. `update-readme` and make your changes, providing thoughtful commits.
+
 ## Community
+
+Me, myself and I! Welcome all who want to share in open source and contribute to improving this app.
 
 ## Issues
 
@@ -28,7 +34,4 @@ For example:
 
 Pull Requests are always welcome.
 
-When you edit the code, please run `npm run test` to check the formatting of your code before you `git commit`.
 Ensure the PR description clearly describes the problem and solution. It should include:
-
-- what to include here

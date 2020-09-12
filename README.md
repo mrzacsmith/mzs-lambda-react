@@ -20,4 +20,4 @@ The purpose of this package is to control how create-react-app templates the app
 
 ## Contributing
 
-Review the [CONTRIBUTING](https://github.com/mrzacsmith/mzs-lambda-react) documentation.
+Review the [CONTRIBUTING](https://github.com/mrzacsmith/mzs-lambda-react/blob/master/CONTRIBUTING.md) documentation.

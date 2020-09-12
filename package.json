@@ -1,0 +1,26 @@
+{
+  "name": "lambda-react",
+  "version": "1.0.0",
+  "description": "CRA for Lambda School students.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrzacsmith/mzs-lambda-react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Mr Zac Smith <zrs3141592@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrzacsmith/mzs-lambda-react/issues"
+  },
+  "homepage": "https://github.com/mrzacsmith/mzs-lambda-react#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "shelljs": "^0.8.4"
+  }
+}

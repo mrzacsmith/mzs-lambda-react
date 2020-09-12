@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "CRA for Lambda School students.",
   "main": "index.js",
+  "bin": {
+    "lambda-react": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

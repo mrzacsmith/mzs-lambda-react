@@ -4,11 +4,13 @@ let shell = require('shelljs')
 let colors = require('colors')
 let fs = require('fs')
 
+let templates = require('./templates/templates.js')
+
 let appName = process.argv[2]
 let appDirectory = `${process.cwd()}/${appName}`
 
 const run = async () => {
-  let sucess = await createReactApp()
+  let success = await createReactApp()
   if (!success) {
     console.log(
       `There was an error while trying to create your new React app using create-react-app!`
@@ -22,8 +24,6 @@ const run = async () => {
   await updateTemplates()
   console.log('Congratulations, you are all done!')
 }
-
-run()
 
 const createReactApp = () => {
   return new Promise((resolve) => {
@@ -58,3 +58,28 @@ const installPackages = () => {
     })
   })
 }
+
+const updateTemplates = () => {
+  return new Promise((resolve) => {
+    let promises = []
+    Object.keys(templates).forEach((fileName, i) => {
+      promises[i] = new Promise((res) => {
+        fs.writeFile(
+          `${appDirectory}/src/${fileName}`,
+          templates[fileName],
+          function (err) {
+            if (err) {
+              return console.log(err)
+            }
+            res()
+          }
+        )
+      })
+    })
+    Promise.all(promises).then(() => {
+      resolve()
+    })
+  })
+}
+
+run()

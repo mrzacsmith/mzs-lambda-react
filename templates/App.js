@@ -20,7 +20,7 @@ function App() {
         <p>Created using Create-React-App</p>
         <p>Modified and maintained by Lambda School graduate:</p>
         <p>
-          Zac Smith ::{' '}
+          Zac Smith {' '}
           <a href="https://github.com/mrzacsmith" target="_blank" rel="noopener noreferrer">
             Github
           </a>{' '}

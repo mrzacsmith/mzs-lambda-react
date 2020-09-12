@@ -48,3 +48,13 @@ const cdIntoNewApp = () => {
     })
   })
 }
+
+const installPackages = () => {
+  return new Promise((resolve) => {
+    console.log('\nInstalling colors --> make your console.log beautiful!'.cyan)
+    shell.exec(`npm i --save color`, () => {
+      console.log('\nAll your packages have been installed!'.green)
+      resolve()
+    })
+  })
+}

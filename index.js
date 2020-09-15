@@ -22,6 +22,8 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
+  await auditFix()
+
   console.log(`\nCongratulations, you are all done!\n cd => ${appName}\n`.cyan)
 }
 
@@ -44,7 +46,8 @@ const createReactApp = () => {
 
 const cdIntoNewApp = () => {
   return new Promise((resolve) => {
-    shell.cd(appDirectory)
+    // shell.cd(appDirectory)
+    shell.exec(`cd ${appName}`)
     resolve()
   })
 }
@@ -52,17 +55,20 @@ const cdIntoNewApp = () => {
 const installPackages = () => {
   return new Promise((resolve) => {
     console.log(
-      '\nInstalling colors --> make your console.log beautiful!\n'.cyan
+      '\nInstalling colors --> make your console.log beautiful!\n'.rainbow
     )
 
-    shell.exec(`npm install colors`, () => {
+    shell.exec(`cd ${appName} && npm install colors`, () => {
       console.log('\nAll your packages have been installed!'.green)
       resolve()
     })
     console.log('\nRemoving unused files\n'.cyan)
-    shell.exec(`rm App.test.js logo.svg serviceWorker.js setupTests.js`, () => {
-      console.log('\nUnused files have been removed!\n'.green)
-    })
+    shell.exec(
+      `cd ${appName}/src && rm App.test.js logo.svg serviceWorker.js setupTests.js`,
+      () => {
+        console.log('\nUnused files have been removed!\n'.green)
+      }
+    )
   })
 }
 
@@ -84,6 +90,15 @@ const updateTemplates = () => {
       })
     })
     Promise.all(promises).then(() => {
+      resolve()
+    })
+  })
+}
+
+const auditFix = () => {
+  return new Promise((resolve) => {
+    shell.exec(`cd ${appName} && npm audit fix`, () => {
+      console.log('Ran npm audit fix\n'.brightGreen)
       resolve()
     })
   })

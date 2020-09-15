@@ -22,9 +22,8 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
-  shell.exec(`cd ${appName} && npm audit fix`, () =>
-    console.log('running audit fix'.red)
-  )
+  await auditFix()
+
   console.log(`\nCongratulations, you are all done!\n cd => ${appName}\n`.cyan)
 }
 
@@ -56,7 +55,7 @@ const cdIntoNewApp = () => {
 const installPackages = () => {
   return new Promise((resolve) => {
     console.log(
-      '\nInstalling colors --> make your console.log beautiful!\n'.cyan
+      '\nInstalling colors --> make your console.log beautiful!\n'.rainbow
     )
 
     shell.exec(`cd ${appName} && npm install colors`, () => {
@@ -91,6 +90,15 @@ const updateTemplates = () => {
       })
     })
     Promise.all(promises).then(() => {
+      resolve()
+    })
+  })
+}
+
+const auditFix = () => {
+  return new Promise((resolve) => {
+    shell.exec(`cd ${appName} && npm audit fix`, () => {
+      console.log('Ran npm audit fix\n'.brightGreen)
       resolve()
     })
   })

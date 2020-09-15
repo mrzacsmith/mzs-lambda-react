@@ -51,11 +51,21 @@ const cdIntoNewApp = () => {
 
 const installPackages = () => {
   return new Promise((resolve) => {
-    console.log('\nInstalling colors --> make your console.log beautiful!'.cyan)
-    shell.exec(`npm install color`, () => {
+    console.log(
+      '\nInstalling colors --> make your console.log beautiful!\n'.cyan
+    )
+
+    shell.exec(`cd ${appName} && npm install colors`, () => {
       console.log('\nAll your packages have been installed!'.green)
       resolve()
     })
+    console.log('\nRemoving unused files\n'.cyan)
+    shell.exec(
+      `cd ${appName}/src && rm App.test.js logo.svg serviceWorker.js setupTests.js`,
+      () => {
+        console.log('\nUnused files have been removed!\n'.green)
+      }
+    )
   })
 }
 

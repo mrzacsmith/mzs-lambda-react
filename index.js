@@ -22,6 +22,9 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
+  shell.exec(`cd ${appName} && echo 'This is audit' >> TEST.md`, () =>
+    console.log('running audit fix'.red)
+  )
   console.log(`\nCongratulations, you are all done!\n cd => ${appName}\n`.cyan)
 }
 
@@ -44,7 +47,8 @@ const createReactApp = () => {
 
 const cdIntoNewApp = () => {
   return new Promise((resolve) => {
-    shell.cd(appDirectory)
+    // shell.cd(appDirectory)
+    shell.exec(`cd ${appName}`)
     resolve()
   })
 }
@@ -55,14 +59,17 @@ const installPackages = () => {
       '\nInstalling colors --> make your console.log beautiful!\n'.cyan
     )
 
-    shell.exec(`npm install colors`, () => {
+    shell.exec(`cd ${appName} && npm install colors`, () => {
       console.log('\nAll your packages have been installed!'.green)
       resolve()
     })
     console.log('\nRemoving unused files\n'.cyan)
-    shell.exec(`rm App.test.js logo.svg serviceWorker.js setupTests.js`, () => {
-      console.log('\nUnused files have been removed!\n'.green)
-    })
+    shell.exec(
+      `cd ${appName}/src && rm App.test.js logo.svg serviceWorker.js setupTests.js`,
+      () => {
+        console.log('\nUnused files have been removed!\n'.green)
+      }
+    )
   })
 }
 

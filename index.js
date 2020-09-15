@@ -22,7 +22,7 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
-  shell.exec(`cd ${appName} && echo 'This is audit' >> TEST.md`, () =>
+  shell.exec(`cd ${appName} && npm audit fix`, () =>
     console.log('running audit fix'.red)
   )
   console.log(`\nCongratulations, you are all done!\n cd => ${appName}\n`.cyan)

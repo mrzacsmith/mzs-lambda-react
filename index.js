@@ -22,14 +22,15 @@ const run = async () => {
   await cdIntoNewApp()
   await installPackages()
   await updateTemplates()
-  console.log('Congratulations, you are all done!'.cyan)
+  console.log(`\nCongratulations, you are all done!\n cd => ${appName}\n`.cyan)
 }
 
 const createReactApp = () => {
   return new Promise((resolve) => {
     if (appName) {
-      shell.exec(`npx create-react-app ${appName}`, () => {
+      shell.exec(`npx create-react-app ${appName}`, (code) => {
         console.log('You new Lambda React app has been created!')
+        console.log(`Exit with code ${code}`)
         resolve(true)
       })
     } else {
@@ -43,9 +44,8 @@ const createReactApp = () => {
 
 const cdIntoNewApp = () => {
   return new Promise((resolve) => {
-    shell.exec(`cd ${appName}`, () => {
-      resolve()
-    })
+    shell.cd(appDirectory)
+    resolve()
   })
 }
 
@@ -55,17 +55,14 @@ const installPackages = () => {
       '\nInstalling colors --> make your console.log beautiful!\n'.cyan
     )
 
-    shell.exec(`cd ${appName} && npm install colors`, () => {
+    shell.exec(`npm install colors`, () => {
       console.log('\nAll your packages have been installed!'.green)
       resolve()
     })
     console.log('\nRemoving unused files\n'.cyan)
-    shell.exec(
-      `cd ${appName}/src && rm App.test.js logo.svg serviceWorker.js setupTests.js`,
-      () => {
-        console.log('\nUnused files have been removed!\n'.green)
-      }
-    )
+    shell.exec(`rm App.test.js logo.svg serviceWorker.js setupTests.js`, () => {
+      console.log('\nUnused files have been removed!\n'.green)
+    })
   })
 }
 

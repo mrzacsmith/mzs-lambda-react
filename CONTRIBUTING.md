@@ -38,4 +38,5 @@ Ensure the PR description clearly describes the problem and solution. It should 
 
 - Issue # the PR fixes (if any)
 - Concise explanation of the motivation and context of the PR if no Issue
-- Any Dependencies
+- Any new dependencies required by the PR
+- Details of any testing done to ensure the PR functions as intended

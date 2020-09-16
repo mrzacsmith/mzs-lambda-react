@@ -20,7 +20,7 @@ Ensure the bug was not already reported by searching on GitHub under [issue](htt
 
 ### Write detailed information
 
-Detailed information is very helpful to understand an issue.
+Detailed information is very helpful to understand an issue. We have provided a template to facilitate your contribution, please ensure it is filled out as completely as possible.  Complete Issues with clear information will be given priority.
 
 For example:
 
@@ -32,6 +32,10 @@ For example:
 
 ## Pull Requests
 
-Pull Requests are always welcome.
+Pull Requests are always welcome.  We have provided a template to facilitate your contribution, please ensure it is filled out as completely as possible.  Complete PRs with clear information will be given priority.
 
 Ensure the PR description clearly describes the problem and solution. It should include:
+
+- Issue # the PR fixes (if any)
+- Concise explanation of the motivation and context of the PR if no Issue
+- Any Dependencies

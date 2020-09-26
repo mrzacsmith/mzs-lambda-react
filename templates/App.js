@@ -2,10 +2,10 @@ module.exports = `import React from 'react'
 
 import './App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      {/* Remove everything from this comment  ------ */}
+      {/* Remove everything from this line to line 37 */}
       <h2>Welcome Lambda student! This is filler, no need to keep it!</h2>
       <a href="https://lambdaschool.com/" target="_blank" rel="noopener noreferrer">
         Visit the Lambda Llama home
@@ -13,8 +13,8 @@ function App() {
       <br />
       <img
         alt="Lambda loves our llamas!"
-        style={{ width: '300px', height: 'auto' }}
-        src="https://images.pexels.com/photos/1578484/pexels-photo-1578484.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        style={{ width: 'auto', height: '300px' }}
+        src="https://pbs.twimg.com/media/Egh41YNU4AADnsM.png"
       ></img>
       <div>
         <p>Created using Create-React-App</p>
@@ -34,7 +34,7 @@ function App() {
           </a>
         </p>
       </div>
-      {/* ------ to this comment! */}
+      {/* Remove everything from line 8 to here */}
     </div>
   )
 }

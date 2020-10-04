@@ -4,6 +4,15 @@ body {
   background-color: #1d212c;
 }
 
+a {
+  text-decoration: none;
+  color: #35476b;
+}
+
+a:hover {
+  color: #4571ca;
+}
+
 h2 {
   color: #ec3944;
   font-family: "Crimson Text", serif;

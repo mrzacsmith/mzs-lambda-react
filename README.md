@@ -16,6 +16,8 @@ The purpose of this package is to control how create-react-app templates the app
 
 ## Usage
 
+Lambda React is open for anyone to use! It is branded only as a project and you can clone and modify as you see fit! Happy coding!
+
 ## Tests
 
 ## Contributing
